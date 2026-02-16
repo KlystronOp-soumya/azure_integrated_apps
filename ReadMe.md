@@ -17,6 +17,6 @@ It follows the official [Azure Durable Functions Quickstart (Java)](https://lear
 <p>
 Once the app is built inside project_root/target 'azure-functions' folder will be created. If this folder is created succesfully then
 azure-functions plugin will be able to launch the durable function. The following picture depicts the output.
-![Output](./durable_function_Java.png)
+<img src="./durable_function_Java.png" alt="Output" width="400"/>
 </p>
 
