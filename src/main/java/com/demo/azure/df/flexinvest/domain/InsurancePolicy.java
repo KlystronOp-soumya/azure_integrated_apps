@@ -25,6 +25,9 @@ public class InsurancePolicy {
     @JsonProperty("nominees")
     private List<Nominee> nominees;
 
+    @JsonProperty("brokerDetails")
+    private Broker brokerDetails;
+
     public UUID getPolicyId() {
         return policyId;
     }
