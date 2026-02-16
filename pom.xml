@@ -6,6 +6,7 @@
     <groupId>com.demo.azure.df.flexinvest</groupId>
     <artifactId>flexInvest-policy-submission-orchestrator</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <name>flexInvest-policy-submission-orchestrator</name>
     <contributors>
