@@ -1,4 +1,4 @@
-package com.demo.azure.df.flexinvest.trigger;
+package com.demo.azure.df.flexinvest.dummy;
 
 import com.microsoft.azure.functions.ExecutionContext;
 import com.microsoft.azure.functions.HttpMethod;
@@ -13,12 +13,12 @@ import com.microsoft.durabletask.azurefunctions.DurableClientInput;
 
 import java.util.Optional;
 
-public class FlexInvestHttpTrigger {
+public class CitiesHttpTrigger {
 
     /**
      * This HTTP-triggered function starts the orchestration.
      */
-    @FunctionName("StartOrchestration")
+    @FunctionName("StartCitiesOrchestration")
     public HttpResponseMessage startOrchestration(
             @HttpTrigger(name = "req",
                     methods = {
