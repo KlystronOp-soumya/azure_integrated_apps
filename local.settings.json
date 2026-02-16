@@ -7,9 +7,9 @@
     "AzureWebJobsSecretStorageType": "files",
     "DurableTaskHubName": "JavaDurableTaskHub",
 
-    "AzureWebJobs.Capitalize.Disabled" : true,
-    "AzureWebJobs.Cities.Disabled": true,
-    "AzureWebJobs.StartOrchestration.Disabled": true
+    "AzureWebJobs.Capitalize.Disabled" : false,
+    "AzureWebJobs.Cities.Disabled": false,
+    "AzureWebJobs.StartOrchestration.Disabled": false
   },
   "Host": {
     "LocalHttpPort": 7071,
