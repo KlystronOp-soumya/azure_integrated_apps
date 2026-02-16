@@ -1,0 +1,27 @@
+{
+  "version": "2.0",
+  "logging": {
+    "logLevel": {
+      "DurableTask.AzureStorage": "Warning",
+      "DurableTask.Core": "Warning"
+    }
+  },
+  "extensions": {
+    "durableTask": {
+      "hubName": "JavaDurableTaskHub",
+      "storageProvider": {
+        "type": "azureStorage",
+        "connectionStringName": "AzureWebJobsStorage"
+      },
+      "controlQueueBatchSize": 32,
+      "maxConcurrentActivityFunctions": 8,
+      "maxConcurrentOrchestratorFunctions": 4,
+      "extendedSessionsEnabled": false,
+      "extendedSessionIdleTimeoutInSeconds": 30
+    }
+  },
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[4.*, 5.0.0)"
+  }
+}

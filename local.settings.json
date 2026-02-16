@@ -1,0 +1,19 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "Java",
+    "WEBSITE_NODE_DEFAULT_VERSION": "~18",
+    "AzureWebJobsSecretStorageType": "files",
+    "DurableTaskHubName": "JavaDurableTaskHub",
+
+    "AzureWebJobs.Capitalize.Disabled" : true,
+    "AzureWebJobs.Cities.Disabled": true,
+    "AzureWebJobs.StartOrchestration.Disabled": true
+  },
+  "Host": {
+    "LocalHttpPort": 7071,
+    "CORS": "*",
+    "CORSCredentials": false
+  }
+}
