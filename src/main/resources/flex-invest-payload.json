@@ -3,10 +3,10 @@
   "policyNumber": "POL-IND-2026-000847",
   "policyHolder": {
     "customerId": "CUST-102938",
-    "fullName": "Rahul Sharma",
+    "fullName": "Jhon Doe",
     "dateOfBirth": "1988-05-14",
-    "email": "rahul.sharma@email.com",
-    "phone": "+91-9876543210"
+    "email": "jhon.doe@dev.com",
+    "phone": "+123555"
   },
   "policyDetails": {
     "productName": "Flexi Invest Secure Plan",
@@ -31,9 +31,15 @@
   },
   "nominees": [
     {
-      "name": "Priya Sharma",
+      "name": "Jane Doe",
       "relationship": "Spouse",
       "sharePercentage": 100.0
     }
-  ]
+  ],
+  "brokerDetails": {
+    "brokerId": "BR-56789",
+    "brokerName": "Acme Brokers Ltd.",
+    "contactEmail": "broker@acme.com",
+    "contactPhone": "+9876543210"
+  }
 }

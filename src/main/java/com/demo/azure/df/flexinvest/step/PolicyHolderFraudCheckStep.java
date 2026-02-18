@@ -1,4 +1,24 @@
 package com.demo.azure.df.flexinvest.step;
 
-public class PolicyHolderFraudCheckStep {
+import com.demo.azure.df.flexinvest.domain.PolicyHolder;
+import com.microsoft.azure.functions.ExecutionContext;
+import com.microsoft.azure.functions.annotation.FunctionName;
+import com.microsoft.durabletask.azurefunctions.DurableActivityTrigger;
+
+import static com.demo.azure.df.flexinvest.util.LoggerUtil.dfInfo;
+
+public final class PolicyHolderFraudCheckStep {
+
+    private PolicyHolderFraudCheckStep() {
+    }
+
+    @FunctionName("policyHolderFraudCheckStep")
+    public Boolean policyHolderFraudCheckStep(@DurableActivityTrigger(name = "policyHolderFraudCheck") PolicyHolder policyHolder,
+                                              final ExecutionContext context) {
+
+        dfInfo("Initiated policyHolderFraudCheck");
+
+        return Boolean.TRUE;
+
+    }
 }

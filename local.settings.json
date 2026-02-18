@@ -9,7 +9,12 @@
 
     "AzureWebJobs.CityNameCapitalizeStep.Disabled" : true,
     "AzureWebJobs.CitiesOrchestrator.Disabled": true,
-    "AzureWebJobs.StartCitiesOrchestration.Disabled": true
+    "AzureWebJobs.StartCitiesOrchestration.Disabled": true,
+    "AzureWebJobs.submitFlexInvestPolicyStep.Disabled" : true,
+    "AzureWebJobs.policyHolderKYCCheckStep.Disabled" : true,
+    "AzureWebJobs.policyHolderFraudCheckStep.Disabled" : true,
+
+    "JAVA_OPTS": "--add-opens java.base/java.time=ALL-UNNAMED"
   },
   "Host": {
     "LocalHttpPort": 7071,
