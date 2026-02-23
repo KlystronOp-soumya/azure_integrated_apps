@@ -5,20 +5,19 @@ import com.microsoft.azure.functions.ExecutionContext;
 import com.microsoft.azure.functions.annotation.FunctionName;
 import com.microsoft.durabletask.azurefunctions.DurableActivityTrigger;
 
-import static com.demo.azure.df.flexinvest.util.LoggerUtil.dfInfo;
-import static com.demo.azure.df.flexinvest.util.LoggerUtil.init;
-
 public class BrokerActivityCheckStep {
 
     @FunctionName("brokerActivityCheckStep")
     public String brokerActivityCheckStep(@DurableActivityTrigger(name = "input") DummyPolicy input,
                                           final ExecutionContext ctx) {
-        init(ctx.getLogger());
 
-        dfInfo("Inside brokerActivityCheckStep " + input);
+        ctx.getLogger().info("Broker Activity Check Step invoked.");
 
-        return input.toString();
+        if (input.getBrokerId().startsWith("INV")) {
+            throw new IllegalStateException("Invalid broker id: " + input.getBrokerId());
+        }
 
+        return "SUCCESS";
     }
 
 }

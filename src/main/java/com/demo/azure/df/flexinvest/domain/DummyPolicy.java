@@ -1,5 +1,7 @@
 package com.demo.azure.df.flexinvest.domain;
 
+import java.util.Objects;
+
 public class DummyPolicy {
 
     private String policyId;
@@ -11,6 +13,10 @@ public class DummyPolicy {
     private String endDate;
 
     private double premiumAmount;
+
+    private String brokerName;
+
+    private String brokerId;
 
     public DummyPolicy() {
     }
@@ -55,14 +61,51 @@ public class DummyPolicy {
         this.premiumAmount = premiumAmount;
     }
 
+    public String getBrokerName() {
+        return brokerName;
+    }
+
+    public void setBrokerName(String brokerName) {
+        this.brokerName = brokerName;
+    }
+
+    public String getBrokerId() {
+        return brokerId;
+    }
+
+    public void setBrokerId(String brokerId) {
+        this.brokerId = brokerId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof DummyPolicy that)) {
+            return false;
+        }
+        return Double.compare(premiumAmount, that.premiumAmount) == 0
+                && Objects.equals(policyId, that.policyId)
+                && Objects.equals(holderName, that.holderName)
+                && Objects.equals(startDate, that.startDate)
+                && Objects.equals(endDate, that.endDate)
+                && Objects.equals(brokerName, that.brokerName)
+                && Objects.equals(brokerId, that.brokerId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(policyId, holderName, startDate, endDate, premiumAmount, brokerName, brokerId);
+    }
+
     @Override
     public String toString() {
         return "DummyPolicy{" +
                 "policyId='" + policyId + '\'' +
                 ", holderName='" + holderName + '\'' +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
+                ", startDate='" + startDate + '\'' +
+                ", endDate='" + endDate + '\'' +
                 ", premiumAmount=" + premiumAmount +
+                ", brokerName='" + brokerName + '\'' +
+                ", brokerId='" + brokerId + '\'' +
                 '}';
     }
 }

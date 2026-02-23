@@ -1,6 +1,8 @@
 package com.demo.azure.df.flexinvest.orchestrator;
 
 import com.demo.azure.df.flexinvest.domain.DummyPolicy;
+import com.demo.azure.df.flexinvest.domain.OrchestrationResponse;
+import com.demo.azure.df.flexinvest.domain.Status;
 import com.microsoft.azure.functions.annotation.FunctionName;
 import com.microsoft.durabletask.TaskFailedException;
 import com.microsoft.durabletask.TaskOrchestrationContext;
@@ -21,7 +23,16 @@ public class FlexInvestPolicySubmissionOrchestration {
             result = ctx.callActivity("brokerActivityCheckStep", input, String.class).await();
 
         } catch (TaskFailedException taskFailedException) {
-            ctx.callActivity("brokerActivityCheckStep", input, String.class).await();
+            // Do the Rollback operation e.g. if take back the amount for any DB or network related issue
+            // Option 1: Stop execution by rethrowing
+            //throw taskFailedException;
+
+            Status status = new Status(false, true, taskFailedException.getMessage());
+            OrchestrationResponse orchestrationResponse = new OrchestrationResponse(input, status);
+
+            // Option 2: Return a failure response immediately
+             return "submissionOrchestrator FAILED: " + orchestrationResponse;
+
         }
 
         return "submissionOrchestrator " + result;
