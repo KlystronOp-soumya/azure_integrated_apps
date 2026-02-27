@@ -41,22 +41,9 @@ public final class FlexInvestPolicySubmissionHttpTrigger {
         String instanceId;
 
         try {
-            if (request.getBody().isEmpty()) {
-                Status status = new Status(false, true, "Invalid payload");
-                OrchestrationResponse orchestrationResponse = new OrchestrationResponse(insurancePolicy, status);
-
-                return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
-                        .body(orchestrationResponse)
-                        .build();
-            }
-
             String body = request.getBody().get();
 
-
-            insurancePolicy = objectMapper.readValue(body, DummyPolicy.class);
-
-            if (insurancePolicy == null) {
-
+            if (body == null || body.isEmpty()) {
                 Status status = new Status(false, true, "Invalid payload");
                 OrchestrationResponse orchestrationResponse = new OrchestrationResponse(insurancePolicy, status);
 
@@ -64,6 +51,8 @@ public final class FlexInvestPolicySubmissionHttpTrigger {
                         .body(orchestrationResponse)
                         .build();
             }
+
+            insurancePolicy = objectMapper.readValue(body, DummyPolicy.class);
 
             DurableTaskClient taskClient = durableClientContext.getClient();
 
