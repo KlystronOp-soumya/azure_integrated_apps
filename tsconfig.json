@@ -5,7 +5,13 @@
     "outDir": "dist",
     "rootDir": ".",
     "sourceMap": true,
-    "strict": false
+    "strict": false,
+    // 👇 Add these for Node auto-imports
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "types": ["node", "jest"], // pulls in @types/node
+    "lib": ["ES2020"]
   },
   "exclude": ["src/**/*.test.ts"]
 }
