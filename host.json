@@ -14,9 +14,16 @@
   },
   "extensions": {
     "durableTask": {
+      "hubName": "DurableFunctionsHub",
       "storageProvider": {
-        "type": "AzureStorage"
+        "type": "azureStorage",
+        "connectionStringName": "AzureWebJobsStorage"
       }
-    }
+    },
+    "controlQueueBatchSize": 32,
+    "maxConcurrentActivityFunctions": 8,
+    "maxConcurrentOrchestratorFunctions": 4,
+    "extendedSessionsEnabled": true,
+    "extendedSessionIdleTimeoutInSeconds": 30
   }
 }

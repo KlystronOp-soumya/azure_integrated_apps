@@ -5,9 +5,9 @@ import * as df from 'durable-functions';
 const myGreetHttpTrigger:HttpHandler = async (request: HttpRequest, context: InvocationContext): Promise<HttpResponse> => { //returns a promise
     const client = df.getClient(context);
 
-    const body: unknown = await request.text();
-    context.log(`body for orchestrator: ${body}`)
-    const instanceId: string = await client.startNew("durableMyGreetOrchestrator", { input: body });//starts the orchestration
+    const body: any = await request.json();
+    context.log(`body for orchestrator: ${body.message}`)
+    const instanceId: string = await client.startNew("durableMyGreetOrchestrator", { input: JSON.stringify(body) });//starts the orchestration
 
     context.log(`Started orchestration with ID = '${instanceId}'.`);
 
